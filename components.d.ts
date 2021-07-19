@@ -12,7 +12,18 @@ declare module 'vue' {
     CarbonSun: typeof import('virtual:vite-icons/carbon/sun')['default']
     CarbonWarning: typeof import('virtual:vite-icons/carbon/warning')['default']
     Footer: typeof import('./src/components/Footer.vue')['default']
+    ListPosts: typeof import('./src/components/ListPosts.vue')['default']
+    NavBar: typeof import('./src/components/NavBar.vue')['default']
+    Post: typeof import('./src/components/Post.vue')['default']
     README: typeof import('./src/components/README.md')['default']
+    RiArticleLine: typeof import('virtual:vite-icons/ri/article-line')['default']
+    RiBookmarkLine: typeof import('virtual:vite-icons/ri/bookmark-line')['default']
+    RiLightbulbLine: typeof import('virtual:vite-icons/ri/lightbulb-line')['default']
+    RiMoonLine: typeof import('virtual:vite-icons/ri/moon-line')['default']
+    RiStickyNoteLine: typeof import('virtual:vite-icons/ri/sticky-note-line')['default']
+    RiSunLine: typeof import('virtual:vite-icons/ri/sun-line')['default']
+    ToggleTheme: typeof import('./src/components/ToggleTheme.vue')['default']
+    UilGithubAlt: typeof import('virtual:vite-icons/uil/github-alt')['default']
   }
 }
 

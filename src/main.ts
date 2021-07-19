@@ -17,6 +17,17 @@ import 'virtual:windi-devtools'
 // register vue composition api globally
 import 'vue-global-api'
 
+declare module 'vue-router' {
+  interface RouteMeta {
+    frontmatter: {
+      date: string
+      type: string
+      title: string
+      duration: string
+    }
+  }
+}
+
 const routes = setupLayouts(generatedRoutes)
 
 // https://github.com/antfu/vite-ssg

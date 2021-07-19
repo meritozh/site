@@ -29,6 +29,7 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ['vue', 'md'],
+      pagesDir: 'pages'
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -111,6 +112,8 @@ export default defineConfig({
 
     // https://github.com/intlify/vite-plugin-vue-i18n
     VueI18n({
+      runtimeOnly: true,
+      compositionOnly: true,
       include: [path.resolve(__dirname, 'locales/**')],
     }),
   ],

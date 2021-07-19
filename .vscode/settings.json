@@ -1,5 +1,7 @@
 {
-  "cSpell.words": ["Vitesse"],
+  "cSpell.words": [
+    "Vitesse"
+  ],
   "i18n-ally.keystyle": "nested",
   "i18n-ally.localesPaths": "locales",
   "i18n-ally.sortKeys": true,
@@ -10,7 +12,9 @@
   "editor.codeActionsOnSave": {
     "source.fixAll.eslint": true,
   },
-  "files.associations": {
-    "*.css": "postcss",
-  },
+  "iconify.inplace": false,
+  "i18n-ally.sourceLanguage": "zh-CN",
+  "editor.tabSize": 2,
+  "editor.wordWrapColumn": 120,
+  "licenser.disableAutoHeaderInsertion": true,
 }
