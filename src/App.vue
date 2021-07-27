@@ -13,9 +13,9 @@ useHead({
 </script>
 
 <template>
-  <div p="7" text="gray-700 dark:gray-200">
+  <div>
     <nav-bar />
-    <main>
+    <main p="x-7 y-10">
       <router-view />
     </main>
   </div>

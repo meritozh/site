@@ -1,27 +1,30 @@
 <script setup lang="ts">
-import { isDark } from "~/logic";
+// import { isDark } from "~/logic";
+import { useI18n } from "vue-i18n";
+
+const { t } = useI18n();
 </script>
 
 <template>
-  <header class="flex justify-between align-middle">
+  <header class="flex justify-between align-middle" p="7">
     <router-link class="w-8 h-8 select-none outline-none" to="/" focusable="false">
       <img src="/favicon.svg" alt="logo" />
       <!-- <img v-show="!isDark" src="/logo-dark.svg" alt="logo" /> -->
     </router-link>
     <nav class="nav flex space-x-5 align-middle">
       <router-link to="/posts">
-        <span class="<md:hidden">Blog</span>
+        <span class="<md:hidden">{{ t('link.posts') }}</span>
         <ri-article-line class="md:hidden" />
       </router-link>
-      <router-link to="/talks" class="<md:hidden">Talks</router-link>
+
       <router-link to="/projects" class>
-        <span class="<md:hidden">Projects</span>
+        <span class="<md:hidden">{{ t('link.projects') }}</span>
         <ri-lightbulb-line class="md:hidden" />
       </router-link>
-      <router-link to="/bookmarks" title="Bookmarks" class="<md:hidden">
+      <router-link to="/bookmarks" :title="t('bookmarks')" class="<md:hidden">
         <ri-bookmark-line />
       </router-link>
-      <router-link to="/notes" title="Notes">
+      <router-link to="/notes" :title="t('notes')">
         <ri-sticky-note-line />
       </router-link>
       <a href="https://github.com/meritozh" target="_blank" title="GitHub">

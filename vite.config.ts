@@ -1,4 +1,5 @@
 import path from 'path'
+import fs from "fs";
 import { defineConfig } from 'vite'
 import Vue from '@vitejs/plugin-vue'
 import Pages from 'vite-plugin-pages'
@@ -12,10 +13,16 @@ import VueI18n from '@intlify/vite-plugin-vue-i18n'
 import Prism from 'markdown-it-prism'
 // @ts-expect-error missing types
 import LinkAttributes from 'markdown-it-link-attributes'
+import { slugify } from './scripts/slugify'
+import anchor from 'markdown-it-anchor'
+import matter from 'gray-matter';
 
 const markdownWrapperClasses = 'prose prose-sm m-auto text-left'
 
 export default defineConfig({
+  build: {
+    sourcemap: true
+  },
   resolve: {
     alias: {
       '~/': `${path.resolve(__dirname, 'src')}/`,
@@ -29,7 +36,18 @@ export default defineConfig({
     // https://github.com/hannoeru/vite-plugin-pages
     Pages({
       extensions: ['vue', 'md'],
-      pagesDir: 'pages'
+      pagesDir: 'pages',
+      extendRoute(route) {
+        const routePath = path.resolve(__dirname, route.component.slice(1))
+
+        if (routePath.endsWith('.md')) {
+          const md = fs.readFileSync(routePath, 'utf-8')
+          const { data } = matter(md)
+          route.meta = Object.assign(route.meta || {}, { frontmatter: data })
+        }
+
+        return route
+      }
     }),
 
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
@@ -37,11 +55,22 @@ export default defineConfig({
 
     // https://github.com/antfu/vite-plugin-md
     Markdown({
+      wrapperComponent: 'post',
       wrapperClasses: markdownWrapperClasses,
       headEnabled: true,
+      markdownItOptions: {
+        quote: '""\'\'',
+      },
       markdownItSetup(md) {
         // https://prismjs.com/
         md.use(Prism)
+        md.use(anchor, {
+          slugify,
+          permalink: true,
+          permalinkBefore: true,
+          permalinkSymbol: '#',
+          permalinkAttrs: () => ({ 'aria-hidden': true }),
+        })
         md.use(LinkAttributes, {
           pattern: /^https?:\/\//,
           attrs: {
@@ -79,6 +108,9 @@ export default defineConfig({
     // https://github.com/antfu/vite-plugin-windicss
     WindiCSS({
       safelist: markdownWrapperClasses,
+      preflight: {
+        enableAll: true,
+      }
     }),
 
     // https://github.com/antfu/vite-plugin-pwa
