@@ -53,34 +53,6 @@ export default defineConfig({
     // https://github.com/JohnCampionJr/vite-plugin-vue-layouts
     Layouts(),
 
-    // https://github.com/antfu/vite-plugin-md
-    Markdown({
-      wrapperComponent: 'post',
-      wrapperClasses: markdownWrapperClasses,
-      headEnabled: true,
-      markdownItOptions: {
-        quote: '""\'\'',
-      },
-      markdownItSetup(md) {
-        // https://prismjs.com/
-        md.use(Prism)
-        md.use(anchor, {
-          slugify,
-          permalink: true,
-          permalinkBefore: true,
-          permalinkSymbol: '#',
-          permalinkAttrs: () => ({ 'aria-hidden': true }),
-        })
-        md.use(LinkAttributes, {
-          pattern: /^https?:\/\//,
-          attrs: {
-            target: '_blank',
-            rel: 'noopener',
-          },
-        })
-      },
-    }),
-
     // https://github.com/antfu/vite-plugin-components
     ViteComponents({
       // allow auto load markdown components under `./src/components/`
@@ -111,6 +83,23 @@ export default defineConfig({
       preflight: {
         enableAll: true,
       }
+    }),
+
+    // https://github.com/antfu/vite-plugin-md
+    Markdown({
+      wrapperClasses: markdownWrapperClasses,
+      headEnabled: true,
+      markdownItSetup(md) {
+        // https://prismjs.com/
+        md.use(Prism)
+        md.use(LinkAttributes, {
+          pattern: /^https?:\/\//,
+          attrs: {
+            target: '_blank',
+            rel: 'noopener',
+          },
+        })
+      },
     }),
 
     // https://github.com/antfu/vite-plugin-pwa

@@ -3,19 +3,9 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
-    CarbonCampsite: typeof import('virtual:vite-icons/carbon/campsite')['default']
-    CarbonDicomOverlay: typeof import('virtual:vite-icons/carbon/dicom-overlay')['default']
-    CarbonLanguage: typeof import('virtual:vite-icons/carbon/language')['default']
-    CarbonLogoGithub: typeof import('virtual:vite-icons/carbon/logo-github')['default']
-    CarbonMoon: typeof import('virtual:vite-icons/carbon/moon')['default']
-    CarbonPedestrian: typeof import('virtual:vite-icons/carbon/pedestrian')['default']
-    CarbonSun: typeof import('virtual:vite-icons/carbon/sun')['default']
-    CarbonWarning: typeof import('virtual:vite-icons/carbon/warning')['default']
-    Footer: typeof import('./src/components/Footer.vue')['default']
     ListPosts: typeof import('./src/components/ListPosts.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     Post: typeof import('./src/components/Post.vue')['default']
-    README: typeof import('./src/components/README.md')['default']
     RiArticleLine: typeof import('virtual:vite-icons/ri/article-line')['default']
     RiBookmarkLine: typeof import('virtual:vite-icons/ri/bookmark-line')['default']
     RiLightbulbLine: typeof import('virtual:vite-icons/ri/lightbulb-line')['default']
