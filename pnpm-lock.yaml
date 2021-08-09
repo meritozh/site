@@ -14,7 +14,6 @@ specifiers:
   '@vueuse/head': ^0.6.0
   critters: ^0.0.10
   cross-env: ^7.0.3
-  dayjs: ^1.10.6
   diacritics: ^1.3.0
   eslint: ^7.32.0
   gray-matter: ^4.0.3
@@ -45,7 +44,6 @@ dependencies:
   '@vueuse/core': 5.2.0_vue@3.1.5
   '@vueuse/head': 0.6.0_vue@3.1.5
   critters: 0.0.10
-  dayjs: 1.10.6
   diacritics: 1.3.0
   gray-matter: 4.0.3
   markdown-it-anchor: 8.1.2
@@ -2718,10 +2716,6 @@ packages:
       whatwg-mimetype: 2.3.0
       whatwg-url: 8.7.0
     dev: true
-
-  /dayjs/1.10.6:
-    resolution: {integrity: sha512-AztC/IOW4L1Q41A86phW5Thhcrco3xuAA+YX/BLpLWWjRcTj5TOt/QImBLmCKlrF7u7k47arTnOyL6GnbG8Hvw==}
-    dev: false
 
   /debug/2.6.9:
     resolution: {integrity: sha512-bC7ElrdJaJnPbAP+1EotYvqZsb3ecl5wi6Bfi6BJTUcNowp6cvspg0jXznRTKDjm/E7AdgFBVeAPVMNcKGsHMA==}

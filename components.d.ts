@@ -3,6 +3,8 @@
 
 declare module 'vue' {
   export interface GlobalComponents {
+    CarbonDicomOverlay: typeof import('virtual:vite-icons/carbon/dicom-overlay')['default']
+    CarbonWarning: typeof import('virtual:vite-icons/carbon/warning')['default']
     ListPosts: typeof import('./src/components/ListPosts.vue')['default']
     NavBar: typeof import('./src/components/NavBar.vue')['default']
     Post: typeof import('./src/components/Post.vue')['default']
